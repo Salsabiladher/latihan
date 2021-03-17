@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>ListMentorAdapter.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ListMentorAdapter.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.dicoding.picodiploma.submitionmentreeapps</span>
+
+<span class="s1">import android.content.Intent</span>
+<span class="s1">import android.text.Layout</span>
+<span class="s1">import android.view.LayoutInflater</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.view.ViewGroup</span>
+<span class="s1">import android.widget.ImageView</span>
+<span class="s1">import android.widget.TextView</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+<span class="s1">import com.bumptech.glide.Glide</span>
+<span class="s1">import com.bumptech.glide.request.RequestOptions</span>
+
+<span class="s0">class </span><span class="s1">ListMentorAdapter(</span><span class="s0">val </span><span class="s1">listMentor: ArrayList&lt;Mentor&gt;) : RecyclerView.Adapter&lt;ListMentorAdapter.ListViewHolder&gt;() {</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateViewHolder(viewGroup: ViewGroup</span><span class="s0">, </span><span class="s1">viewType: Int): ListViewHolder {</span>
+        <span class="s0">val </span><span class="s1">view: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_mentor</span><span class="s0">, </span><span class="s1">viewGroup</span><span class="s0">,false </span><span class="s1">)</span>
+        <span class="s0">return </span><span class="s1">ListViewHolder(view)</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">getItemCount(): Int {</span>
+        <span class="s0">return </span><span class="s1">listMentor.size</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onBindViewHolder(holder: ListViewHolder</span><span class="s0">, </span><span class="s1">position: Int) {</span>
+        <span class="s0">val </span><span class="s1">(jenis</span><span class="s0">,</span><span class="s1">favorite</span><span class="s0">, </span><span class="s1">photo</span><span class="s0">, </span><span class="s1">layanan</span><span class="s0">, </span><span class="s1">detail</span><span class="s0">,</span><span class="s1">) = listMentor[position]</span>
+
+        <span class="s1">Glide.with(holder.itemView.context)</span>
+                <span class="s1">.load(photo)</span>
+                <span class="s1">.apply(RequestOptions())</span>
+                <span class="s1">.into(holder.imgPhoto)</span>
+
+        <span class="s1">holder.tvJenis.text = jenis</span>
+        <span class="s1">holder.tvFavorite.text = favorite</span>
+
+        <span class="s0">val </span><span class="s1">mContext = holder.itemView.context</span>
+
+        <span class="s1">holder.itemView.setOnClickListener {</span>
+            <span class="s0">val </span><span class="s1">moveDetail = Intent(mContext</span><span class="s0">, </span><span class="s1">detailmentor::</span><span class="s0">class</span><span class="s1">.java)</span>
+            <span class="s1">moveDetail.putExtra(detailmentor.EXTRA_FAVORITE</span><span class="s0">, </span><span class="s1">favorite)</span>
+            <span class="s1">moveDetail.putExtra(detailmentor.EXTRA_JENIS</span><span class="s0">, </span><span class="s1">jenis)</span>
+            <span class="s1">moveDetail.putExtra(detailmentor.EXTRA_PHOTO</span><span class="s0">, </span><span class="s1">photo)</span>
+            <span class="s1">moveDetail.putExtra(detailmentor.EXTRA_DETAIL</span><span class="s0">, </span><span class="s1">detail)</span>
+            <span class="s1">moveDetail.putExtra(detailmentor.EXTRA_LAYANAN</span><span class="s0">, </span><span class="s1">layanan)</span>
+            <span class="s1">mContext.startActivity(moveDetail)</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s1">inner </span><span class="s0">class </span><span class="s1">ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {</span>
+        <span class="s0">var </span><span class="s1">tvJenis: TextView = itemView.findViewById(R.id.tv_item_jenis)</span>
+        <span class="s0">var </span><span class="s1">tvFavorite: TextView = itemView.findViewById(R.id.tv_item_favorite)</span>
+        <span class="s0">var </span><span class="s1">imgPhoto: ImageView = itemView.findViewById(R.id.img_item_photo)</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span></pre>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">SubmitionMentreeApps</string>
+    <string name="jenis_mentor">Jenis mentor</string>
+    <string name="detail_mentor">Detail</string>
+    <string name="menu">menu</string>
+    <string name="content_main">Berikut ini merupakan menu dari kelas mentoring kami</string>
+    <string name="content_favorite">Value favotite</string>
+    <string name="overview">overview</string>
+    <string name="mentor_layanan">Layanan Mentor</string>
+    <string name="mentor_detail">Mentor detail</string>
+    <string name="content_layanan">content layanan</string>
+    <string name="content_detail">content detail</string>
+    <string name="jenis">Jenis</string>
+    <string name="salsabila_adinda_hermawan">Salsabila Adinda Hermawan</string>
+    <string name="universitas">universitas</string>
+    <string name="universitas_udayana">Universitas Udayana</string>
+    <string name="email">email</string>
+    <string name="salsabilhermawan_gmail_com">Salsabilhermawan@gmail.com</string>
+    <string name="detail">detail</string>
+    <string name="jenis_mentoring">Jenis Mentoring</string>
+    <string name="nama">nama</string>
+</resources>

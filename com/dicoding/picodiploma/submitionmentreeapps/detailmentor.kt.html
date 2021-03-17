@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>detailmentor.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+detailmentor.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.dicoding.picodiploma.submitionmentreeapps</span>
+
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.widget.ImageView</span>
+<span class="s1">import android.widget.TextView</span>
+<span class="s1">import com.bumptech.glide.Glide</span>
+<span class="s1">import com.bumptech.glide.request.RequestOptions</span>
+
+<span class="s0">class </span><span class="s1">detailmentor : AppCompatActivity() {</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_detailmentor)</span>
+        <span class="s0">val </span><span class="s1">actionbar = supportActionBar</span>
+        <span class="s1">actionbar!!.title = </span><span class="s2">&quot;Detail Mentoring&quot;</span>
+        <span class="s1">actionbar.setDisplayHomeAsUpEnabled(</span><span class="s0">true</span><span class="s1">)</span>
+
+        <span class="s0">val </span><span class="s1">tvSetJenis: TextView = findViewById(R.id.tv_item_jenis)</span>
+        <span class="s0">val </span><span class="s1">imgSetPhoto: ImageView = findViewById(R.id.img_item_photo)</span>
+        <span class="s0">val </span><span class="s1">tvSetDetail: TextView = findViewById(R.id.tv_item_detail)</span>
+        <span class="s0">val </span><span class="s1">tvLayanan: TextView = findViewById(R.id.tv_item_layanan)</span>
+        <span class="s0">val </span><span class="s1">tvFavorite: TextView = findViewById(R.id.tv_item_favorite)</span>
+
+        <span class="s0">val </span><span class="s1">tJenis  = intent.getStringExtra(EXTRA_JENIS)</span>
+        <span class="s0">val </span><span class="s1">tImg = intent.getStringExtra(EXTRA_PHOTO)</span>
+        <span class="s0">val </span><span class="s1">tLayanan = intent.getStringExtra(EXTRA_LAYANAN)</span>
+        <span class="s0">val </span><span class="s1">tDetail= intent.getStringExtra(EXTRA_DETAIL)</span>
+        <span class="s0">val </span><span class="s1">tFavorite = intent.getStringExtra(EXTRA_FAVORITE)</span>
+
+
+
+        <span class="s1">tvSetJenis.text = tJenis</span>
+        <span class="s1">Glide.with(</span><span class="s0">this</span><span class="s1">)</span>
+            <span class="s1">.load(tImg)</span>
+            <span class="s1">.apply(RequestOptions())</span>
+            <span class="s1">.into(imgSetPhoto)</span>
+        <span class="s1">tvLayanan.text = tLayanan</span>
+        <span class="s1">tvSetDetail.text = tDetail</span>
+        <span class="s1">tvFavorite.text = tFavorite</span>
+    <span class="s1">}</span>
+
+    <span class="s1">companion </span><span class="s0">object </span><span class="s1">{</span>
+        <span class="s1">const </span><span class="s0">val </span><span class="s1">EXTRA_JENIS = </span><span class="s2">&quot;extra_jenis&quot;</span>
+        <span class="s1">const </span><span class="s0">val </span><span class="s1">EXTRA_PHOTO = </span><span class="s2">&quot;extra_photo&quot;</span>
+        <span class="s1">const </span><span class="s0">val </span><span class="s1">EXTRA_LAYANAN = </span><span class="s2">&quot;extra_layanan&quot;</span>
+        <span class="s1">const </span><span class="s0">val </span><span class="s1">EXTRA_DETAIL = </span><span class="s2">&quot;extra_detail&quot;</span>
+        <span class="s1">const </span><span class="s0">val </span><span class="s1">EXTRA_FAVORITE = </span><span class="s2">&quot;extra_favorite&quot;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onSupportNavigateUp(): Boolean {</span>
+        <span class="s1">onBackPressed()</span>
+        <span class="s0">return true</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>about.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+about.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.dicoding.picodiploma.submitionmentreeapps</span>
+
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.widget.ImageView</span>
+<span class="s1">import com.bumptech.glide.Glide</span>
+<span class="s1">import com.bumptech.glide.request.RequestOptions</span>
+
+<span class="s0">class </span><span class="s1">about : AppCompatActivity() {</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_about)</span>
+        <span class="s0">val </span><span class="s1">actionbar = supportActionBar</span>
+        <span class="s1">actionbar!!.title = </span><span class="s2">&quot;About&quot;</span>
+        <span class="s1">actionbar.setDisplayHomeAsUpEnabled(</span><span class="s0">true</span><span class="s1">)</span>
+
+        <span class="s0">val </span><span class="s1">imgMe: ImageView = findViewById(R.id.img_item_photo)</span>
+
+        <span class="s0">val </span><span class="s1">tImg = </span><span class="s2">&quot;@drawable/logo&quot;</span>
+
+        <span class="s1">Glide.with(</span><span class="s0">this</span><span class="s1">)</span>
+                <span class="s1">.load(tImg)</span>
+                <span class="s1">.apply(RequestOptions())</span>
+                <span class="s1">.into(imgMe)</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onSupportNavigateUp(): Boolean {</span>
+        <span class="s1">onBackPressed()</span>
+        <span class="s0">return true</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

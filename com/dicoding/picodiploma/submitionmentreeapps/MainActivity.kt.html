@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>MainActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.dicoding.picodiploma.submitionmentreeapps</span>
+
+<span class="s1">import android.content.Intent</span>
+<span class="s1">import androidx.appcompat.app.AppCompatActivity</span>
+<span class="s1">import android.os.Bundle</span>
+<span class="s1">import android.view.Menu</span>
+<span class="s1">import android.view.MenuItem</span>
+<span class="s1">import androidx.recyclerview.widget.LinearLayoutManager</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+
+<span class="s0">class </span><span class="s1">MainActivity : AppCompatActivity() {</span>
+    <span class="s1">private lateinit </span><span class="s0">var </span><span class="s1">rvMentor: RecyclerView</span>
+    <span class="s1">private </span><span class="s0">var </span><span class="s1">list: ArrayList&lt;Mentor&gt; = arrayListOf()</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate(savedInstanceState: Bundle?) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span>
+        <span class="s1">setContentView(R.layout.activity_main)</span>
+        <span class="s0">val </span><span class="s1">actionbar = supportActionBar</span>
+        <span class="s1">actionbar!!.title= </span><span class="s2">&quot;Home&quot;</span>
+
+        <span class="s1">rvMentor = findViewById(R.id.rv_mentor)</span>
+        <span class="s1">rvMentor.setHasFixedSize(</span><span class="s0">true</span><span class="s1">)</span>
+
+        <span class="s1">list.addAll(MentorsData.listData)</span>
+        <span class="s1">showRecyclerList()</span>
+    <span class="s1">}</span>
+
+    <span class="s1">private </span><span class="s0">fun </span><span class="s1">showRecyclerList() {</span>
+        <span class="s1">rvMentor.layoutManager = LinearLayoutManager(</span><span class="s0">this</span><span class="s1">)</span>
+        <span class="s0">val </span><span class="s1">listMentorAdapter = ListMentorAdapter (list)</span>
+        <span class="s1">rvMentor.adapter = listMentorAdapter</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateOptionsMenu(menu: Menu?): Boolean {</span>
+        <span class="s1">menuInflater.inflate(R.menu.main_menu</span><span class="s0">, </span><span class="s1">menu)</span>
+        <span class="s0">return super</span><span class="s1">.onCreateOptionsMenu(menu)</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onOptionsItemSelected(item: MenuItem): Boolean {</span>
+        <span class="s1">setMode(item.itemId)</span>
+        <span class="s0">return super</span><span class="s1">.onOptionsItemSelected(item)</span>
+    <span class="s1">}</span>
+
+    <span class="s1">private </span><span class="s0">fun </span><span class="s1">setMode(selectedMode: Int) {</span>
+        <span class="s0">when </span><span class="s1">(selectedMode) {</span>
+            <span class="s1">R.id.miCompose -&gt; {</span>
+                <span class="s0">val </span><span class="s1">iAbout = Intent(</span><span class="s0">this</span><span class="s1">@MainActivity</span><span class="s0">, </span><span class="s1">about::</span><span class="s0">class</span><span class="s1">.java)</span>
+                <span class="s1">startActivity(iAbout)</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
