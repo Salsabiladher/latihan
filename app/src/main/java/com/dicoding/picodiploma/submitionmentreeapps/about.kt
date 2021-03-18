@@ -12,7 +12,7 @@ class about : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
         val actionbar = supportActionBar
-        actionbar!!.title = "About"
+        actionbar!!.title = "about"
         actionbar.setDisplayHomeAsUpEnabled(true)
 
         val imgMe: ImageView = findViewById(R.id.img_item_photo)
